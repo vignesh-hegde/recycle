@@ -1,0 +1,69 @@
+
+{% extends "service/base.html" %}
+
+{% load static %}
+
+
+
+{% block body_block %}
+
+{% if registered %}
+<h2>Thank you for registering</h2>
+{% else %}
+<h1>Register here</h1>
+{% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</ul>
+{% endif %}
+<a href="mailto:recyclesdh@gmail.com?&subject=Request%20to%20register%20as%20agent&body=PinCode:%0DFull%20Name:%0DEmail:%0DPhone:%0DAddress:"><button width="80%"class="pure-button pure-button-primary" style="border-radius: 5px;background-color: #04aa8b; font-size: 20px;">Send Email To Register</button></a>
+<br>
+<br>
+<h1 style="font-weight: 300; font-size: 25px;">Issues using above button? Email us  recyclesdh@gmail.com</h1>
+<p style="font-weight: 300; font-size: 25px;"></p>
+<br>
+<p style="font-size: 20px; font-weight: 300;">Make sure you provide following details  </p>
+<br>
+<div>
+    <ol>
+        <li>Pincode</li>
+        <li>Name</li>
+        <li>Email Id</li>
+        <li>Phone Number</li>
+        <li>Address</li>
+    </ol>
+</div>
+<!--
+    <form class="pure-form pure-form-stacked" method="POST" > 
+        {% csrf_token %}
+        <fieldset style="display: flex;flex-direction: column;">
+            <div class="pure-control-group" style="display: flex; flex-direction: column;">
+                <label for="id_username" style="width: 100px;">Pincode</label>
+                {{ user_from.username }}
+            </div>
+            <div class="pure-control-group" style="display: flex; flex-direction: column;">
+                <label for="id_email" style="width: 100px;">Email</label>
+                {{ user_from.email }}
+            </div>
+            <div class="pure-control-group" style="display: flex; flex-direction: column;">
+                <label for="id_password" style="width: 100px;">Password</label>
+                {{ user_from.password }}
+            </div>
+            <div style="display: flex; flex-direction: row; justify-content: space-around;"  >
+           
+            
+            </div>
+        </div> 
+        </fieldset>
+
+</form>
+-->
+{% endif %}
+</div>
+
+{% endblock %}
+
+
+
+

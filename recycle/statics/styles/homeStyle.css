@@ -1,0 +1,362 @@
+:root{
+    --color-level1:#0047AB;
+    --color-level2:#1277DD;
+    --color-level3:#259FED;
+    --color-level4:#01BFFF;
+    --color-dark:#303030;
+    --color-light:#fff;
+    --bg-color:rgba(66, 135, 245,0.9);
+    --color-card:rgba(255, 255, 255, 0.5);
+    --color-card-a:rgba(255, 255, 255, 0.8);
+
+
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+body{
+    
+    margin: 0px;
+    padding: 0px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: var(--bg-color);
+
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    position: relative;
+}
+.top{
+    position: fixed;
+    z-index: -1;
+}
+.bottom{
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+}
+header{
+    position: fixed;
+    z-index: 2;
+    top:0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    background-color: var(--color-light);
+    box-shadow: 0px 0px 10px 1px var(--color-dark);
+}
+
+nav{
+    position: fixed;
+    height: 70px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--color-light);
+
+}
+nav div{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 70px;
+}
+.brand h2{
+    font-size:40px;
+    font-weight:400;
+    color: var(--color-dark);
+    
+}
+nav ul{
+    width: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+}
+nav ul li{
+    width: 100px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 68px;
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--color-dark);
+}
+.c-border{
+    border-style: solid;
+    border-color: var(--color-level2);
+    border-width:0 0 3px 0;
+}
+.current{
+    color: var(--color-level2);
+
+}
+
+footer{
+    border-top-left-radius:30px ;
+    border-top-right-radius:30px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height:350px;
+    width: 100%;
+    background-color: var(--color-level2);
+    margin-bottom: 0;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+
+}
+.cpy{
+    
+    border-top-left-radius:30px ;
+    border-top-right-radius:30px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+    background-color: var(--color-dark);
+}
+.links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    width: 90%;
+    height: 70%;
+    padding: 10px 0px;
+}
+
+.links ul{
+    height: 60%;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+.links ul li{
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+.links ul li a{
+    text-decoration: none;
+    color: var( --color-card-a);
+    font-size: 16px;
+}
+.cpy h3{
+    color:var(--color-light);
+    font-weight: 300;
+    
+}
+
+
+.con{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 250px;
+}
+
+.inner{
+    border-radius: 10px;
+    text-align: justify;
+    padding: 30px;
+    width: 82%;
+    background-color: var(--color-card);
+    backdrop-filter: blur(15px);
+}
+
+.Gap{
+    height: 20px;
+}
+
+.inneru{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    text-align: justify;
+    padding: 30px;
+    width: 50%;
+    background-color: var(--color-card);
+    backdrop-filter: blur(15px);
+}
+
+.inneru h1{
+    width: 80%;
+}
+.pure-form{
+    width: 80%;
+}
+.pure-form fieldset input{
+    width: 100%;
+    border-radius: 10px !important;
+    border-color: var(--bg-color) !important;
+    border-style: solid !important;
+    border-width: 2px !important;
+}
+.pure-form fieldset textarea{
+    width: 100%;
+    border-radius: 10px !important;
+    border-color: var(--bg-color) !important;
+    border-style: solid !important;
+    border-width: 2px !important;
+    resize: none;
+}
+.pure-button{
+    border-radius: 10px !important;
+    width: 150px;
+    height: 50px;
+}
+#bLogo{
+    transition: all 0.5s ease ;
+}
+@media (max-width:990px){
+    .b{
+        margin-left: 25px;
+    }
+    .inneru{
+        width: 80%;
+    }
+    .pure-form fieldset input{
+        width: 100%;
+        height: 45px;
+        border-radius: 10px !important;
+        border-color: var(--bg-color) !important;
+        border-style: solid !important;
+        border-width: 2px !important;
+    }
+
+    .inneru h1{
+        width: 90%;
+    }
+    .pure-form{
+        width: 90%;
+    }
+
+    .pure-button{
+        width:100%;
+    }
+
+}
+
+@media (max-width:730px)
+{  .links{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+.links ul{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    height: 80%;
+    width: 95%;
+    margin: 5px 0px ;
+}
+
+footer{
+    border-top-left-radius:30px ;
+    border-top-right-radius:30px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height:350px;
+    width: 100%;
+    background-color: var(--color-level2);
+    margin-bottom: 0;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+}
+
+p{
+    overflow-wrap: break-word;
+word-wrap: break-word;
+
+-ms-word-break: break-all;
+/* This is the dangerous one in WebKit, as it breaks things wherever */
+word-break: break-all;
+/* Instead use this non-standard one: */
+
+
+/* Adds a hyphen where the word breaks, if supported (No Blink) */
+-ms-hyphens: auto;
+-moz-hyphens: auto;
+-webkit-hyphens: auto;
+hyphens: auto;
+}
+
+.para{
+    width: 85%;
+}
+.frm{
+    width: 100%;
+    display: flex;
+    flex-direction:row;
+    align-content: center;
+    justify-content: center;
+}
+
+.bu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bt{
+    width: 45% !important;
+}
+.b{
+    background-color: #1277DD !important;
+}
+.r{
+    background-color: #498acfc9 !important;
+}
+
+.brln{
+    border-radius: 20px;
+    border-style:solid ;
+    color: var(--color-level2);
+    background-color: var(--color-level2);
+}

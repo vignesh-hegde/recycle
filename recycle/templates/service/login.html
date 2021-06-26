@@ -1,0 +1,32 @@
+{% extends 'service/base.html' %}
+{% block body_block %}
+<style>
+    ul{
+        color: tomato;
+        list-style: none;
+    }
+</style>
+<h1 style="font-size: 40px; font-weight: 300;">
+    Login
+</h1>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<form class="pure-form pure-form-stacked" action="{%url 'service:login' %}" method="POST" >
+    <fieldset style="display: flex;flex-direction: column;">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <br>
+        <input style="width: 50%; align-self: center; background-color:#04aa8b; font-size: 18px; border-radius: 5px;" type="submit" class="pure-button pure-button-primary" value="Login">
+    </fieldset>
+</form>
+<p><a style="text-decoration: none; font-size: 20px; color: teal;" href="{% url "service:password_reset" %}">Forgot password?</a></p>
+
+{% endblock %}

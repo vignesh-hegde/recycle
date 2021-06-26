@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "styles/services_verify.css" %}">
+    <meta name="theme-color" content="#04aa8b">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
+    <title>Recycle</title>
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <a  href="{% url "service:index" %}">
+                <div class="b">
+                    <img id="bLogo" src="{% static "images/logo.png" %}" alt="" width="40px" style="align-self: center;">
+                    <h1 class="brand">Recycle </h1>
+                </div>
+            </a>
+            <ul id="nav-links">
+                <li class="currnet"> <a class="non-current nav-link" href="{% url "service:index" %}">Home</a></li>
+                {% if user.is_authenticated %}
+                <li class="currnet"><a class="current nav-link" href="">verify</a></li> 
+                <li class="currnet"><a class="non-current nav-link" href="{% url "service:logout" %}">Logout</a></li> 
+                 {% else %}
+                 <li class="currnet"><a class="non-current nav-link" href="{% url "service:login" %}">Login</a></li> 
+                 {% endif %}
+        
+            </ul>
+        </nav>
+        <div class="burger" onclick="bueger()">
+            <hr id="top">
+            <hr id="middle">
+            <hr id="bottom">
+        </div>
+    </header>
+    
+
+    <div class="cont">
+
+        <div class="inneru" >
+            <h1>Details</h1>
+            {% if all_objects %}
+            {% for data in all_objects %}
+            <div class="para" >
+                <div class="details">
+                <p><strong>Name: </strong> {{ data.name }}</p>    
+                <p><strong>Email: </strong>{{ data.email }}</p>
+                <p><strong>Phone: </strong> {{ data.phone }}</p>
+                <p><strong>Pincode: </strong>{{ data.pincode }}</p>
+                <p><strong>Address: </strong>{{ data.address }}</p>
+                </div >
+                <div class="frm">
+                    <form class="pure-form pure-form-stacked" method="POST" >
+                        {% csrf_token %}
+                        
+                        <input type="hidden" name="val" value="{{ data.id }}" >
+                        <fieldset>
+                            
+                            
+                                <div class="amtdiv">
+                                    <label class="l" for="amount">Amount</label>
+                                    <input class="a" type="number" id="amt" name="amount" value="0">
+                                </div>
+                                <br>
+                            <div class="bu">
+                                <input type="submit" class="pure-button pure-button-primary bt" id="b" class=".reload_page" name="btn" value="Approve">
+                                <input type="submit" class="pure-button pure-button-primary bt r" class=".reload_page" name="btn" value="Reject">    
+                            </div>
+                        
+                           </fieldset>
+                    </form>
+                
+            </div>
+            <br>
+            <hr class="brln">
+            <br>
+        </div>
+            {% endfor %}
+            {% else %}
+            <div style="height: 500px;display: flex; align-items: center;">
+                <h1>No Records</h1>
+            </div>
+            {% endif %}
+        </div>
+    </div> 
+
+
+<footer>
+    <div id="top-footer">
+        <div class="footer-links"> 
+            <ul><li><h3>Credits</h3></li>
+                <li><a href='https://www.freepik.com/free-photos-vectors/background'>freepik.com</a></li>
+                <li><a href="https://www.usgbc.org/articles/freebie-friday-usgbc-wallpaper-earth-day">USGBC Earth Day</a></li>
+                <li><a href="http://getdrawings.com">getdrawings.com</a></li>
+            </ul>
+        </div>
+        <div class="footer-teams"> 
+            <ul><li><h3>Team</h3></li>
+                <li><a href="https://github.com/vignesh4a" >Vignesh Hegde</a></li>
+                <li><a href="https://github.com/USAJEY">U S Ajay</a></li>
+                <li><a href="https://github.com/sourabhalagekar">Sourabh Halgekar</a></li>
+                <li><a href="https://github.com/sureshbhagath">Suresh Bhagath</a></li>    
+            </ul>
+        </div>
+    </div>
+    <div id="bottom-footer">
+        <p>&copy; Mini Project</p>
+    </div>
+</footer>
+</body>
+<script src="{% static "scripts/user_upload.js" %}"></script>
+<script>
+    
+["ECerror","Eerror","Pherror","Pinerror","Aerror"].forEach( function(id){
+    document.getElementById(id).style.display = "none";
+});
+
+
+function error_func(error_type){
+    error_objs={
+        Email_Confirmation_Error:["ECerror","id_email_confirm"],
+        Email_Error:["Eerror","id_email"],
+        Pincode_Error:["Pinerror","id_pincode"],
+        Address_Error:["Aerror","id_address"],
+        Phone_Error:["Pherror","id_phone"],
+    }
+    document.getElementById(error_objs[error_type][0]).style.display = "Block";
+  document.getElementById(error_objs[error_type][1]).style.setProperty("border-color", "red", "important");
+}
+
+{% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+        {% if error == "Email_Error" %}
+        error_func("Email_Error")
+        {% elif error == "Phone_Error" %}
+        error_func("Phone_Error")
+        {% elif error == "Pincode_Error" %}
+        error_func("Pincode_Error")
+        {% elif error == "Email_Confirmation_Error" %}
+        error_func("Email_Confirmation_Error")
+        {% elif error == "Address_Error" %}
+        error_func("Address_Error")
+        {% endif %}
+    {% endfor %}
+{% endif %}  
+</script>
+</html>

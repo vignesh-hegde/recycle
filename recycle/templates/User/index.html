@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#04aa8b">
+    <link rel="stylesheet" href="{% static "styles/user_index.css" %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">   
+    <title>Recycle</title>
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <a  href="{% url "user:index" %}">
+                <div class="b">
+                    <img id="bLogo" src="{% static "images/logo.png" %}" alt="" width="40px" style="align-self: center;">
+                    <h1 class="brand">Recycle </h1>
+                </div>
+            </a>
+            <ul id="nav-links">
+                <li class="currnet"> <a class="current nav-link" href="">Home</a></li>
+                <li class="currnet"> <a class="non-current nav-link" href="{% url "user:upload" %}">Upload</a></li>
+                <li class="currnet"> <a class="non-current nav-link" href="{% url "user:contact" %}">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="burger" onclick="bueger()">
+            <hr id="top">
+            <hr id="middle">
+            <hr id="bottom">
+        </div>
+    </header>
+    
+    <div class="top-div">
+        <div style="height: 70px;"></div>
+        <h1 id="main-message">
+            Recycle today for a better tomorrow.
+        </h1>
+        <a href="{% url "user:upload" %}" class="recycle-btton-a"><p>Recycle Now</p></a>
+    </div>
+    
+    <div id="steps">
+        <h1>How can you help?</h1>
+        <div id="steps-inner">
+            <div class="step">
+                <img src="{% static "images/step_1.jpg" %}" alt="">
+                <p>Upload the details of recyclable waste. </p>
+            </div>
+            <div class="step">
+                <img src="{% static "images/step_2.jpg" %}" alt="">
+                <p>We will pick-up recyclable waste from the given location</p>
+            </div>
+            <div class="step">
+                <img src="{% static "images/step_3.jpg" %}" alt="">
+                <p>Once approved you will recive Coupon</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="slides">
+        <h1 id="slider-head">Did You Know?</h1>
+        <div id="facts">
+            <h3 class="temp">Five plastic bottles (PET) recycled provides enough fiber to create one square feet of carpet or enough fiber fill to fill one ski jacket.</h3>
+            <h3 class="temp">  Recycling 1 ton of cardboard saves 170 liters of oil</h3>
+            <h3 class="temp"> Making paper from recycled paper reduces the related contribution to air pollution 95%</h3>
+            <h3 class="temp">Recycling just one glass jar saves enough electricity to light an 11 watt CFL bulb for 20 hours.</h3>
+            <h3 class="temp">The average person has the opportunity to recycle more than 25,000 cans in a lifetime</h3>
+        </div>
+    </div>
+
+    <div id="about">
+        <h1>About Us</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+             Unde, porro odit id cupiditate ipsam nisi quos, recusandae debitis harum magni neque vero? Sit voluptas officiis, animi inventore doloremque dolore culpa.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus inventore at quos, autem omnis beatae veniam vitae rem sunt alias nihil dignissimos aliquid praesentium atque eum, blanditiis ducimus cupiditate necessitatibus.
+            Quam quos iure expedita deleniti, ea suscipit veritatis ex quod atque pariatur dolorem sed a. Nostrum, hic nesciunt accusantium quaerat consequatur nisi deleniti dolor id cumque placeat quas. Velit, nihil!
+            Corporis rem suscipit animi quis eaque consectetur incidunt cumque nihil? Eum, laboriosam quos vitae incidunt reprehenderit cupiditate numquam quas voluptatum sit veritatis dolorem accusantium minima, illo ad maxime quod aut?
+            Id eligendi voluptatum nisi, illum minus totam harum earum tempore veniam officia delectus, expedita quia temporibus, tempora nobis error ex unde praesentium ipsam optio alias officiis iusto facilis. Ducimus, ea.
+            Molestias, assumenda! Illo doloribus nihil qui sequi repudiandae natus quo debitis deserunt ea quisquam! Saepe deserunt sapiente, a explicabo molestias at consequuntur porro tenetur, aut, et consectetur ut commodi repudiandae?
+        </p>
+    </div>
+
+
+<footer>
+    <div id="top-footer">
+        <div class="footer-links"> 
+            <ul><li><h3>Credits</h3></li>
+                <li><a href='https://www.freepik.com/free-photos-vectors/background'>freepik.com</a></li>
+                <li><a href="https://www.usgbc.org/articles/freebie-friday-usgbc-wallpaper-earth-day">USGBC Earth Day</a></li>
+                <li><a href="http://getdrawings.com">getdrawings.com</a></li>
+            </ul>
+        </div>
+        <div class="footer-teams"> 
+            <ul>
+            <li><h3>Team</h3></li>
+            <li><a href="https://github.com/vignesh4a" >Vignesh Hegde</a></li>
+            <li><a href="https://github.com/USAJEY">U S Ajay</a></li>
+            <li><a href="https://github.com/sourabhalagekar">Sourabh Halgekar</a></li>
+            <li><a href="https://github.com/sureshbhagath">Suresh Bhagath</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="bottom-footer">
+        <p>&copy; Mini Project</p>
+    </div>
+</footer>
+</body>
+<script src="{% static "scripts/user_index.js" %}"></script>
+</html>

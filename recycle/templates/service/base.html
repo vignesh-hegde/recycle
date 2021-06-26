@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#04aa8b">
+    <link rel="stylesheet" href="{% static "styles/user_upload.css" %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
+    <title>Recycle</title>
+    <style>
+        .con{
+            margin-top: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+    </style>
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <a  href="{% url "service:index" %}">
+                <div class="b">
+                    <img id="bLogo" src="{% static "images/logo.png" %}" alt="" width="40px" style="align-self: center;">
+                    <h1 class="brand">Recycle </h1>
+                </div>
+            </a>
+            <ul id="nav-links">
+                <li class="currnet"> <a class="non-current nav-link" href="{% url "service:index" %}">Home</a></li>
+               {% if request.path  == "/service/register/" %}
+                <li class="currnet"><a class="non-current nav-link" href="{% url "service:login" %}">Login</a></li> 
+                 {% elif request.path == "/service/login/" %}
+                <li class="currnet"><a class="non-current nav-link" href="{% url "service:register" %}">Register</a></li> 
+                 {% endif %}
+            
+            </ul>
+        </nav>
+        <div class="burger" onclick="bueger()">
+            <hr id="top">
+            <hr id="middle">
+            <hr id="bottom">
+        </div>
+    </header>
+    
+
+    <div class="con">
+
+        <div class="inneru" >
+            {% block body_block %}
+        
+            {% endblock %}
+        </div>
+        </div>
+    
+
+
+<footer>
+    <div id="top-footer">
+        <div class="footer-links"> 
+            <ul><li><h3>Credits</h3></li>
+                <li><a href='https://www.freepik.com/free-photos-vectors/background'>freepik.com</a></li>
+                <li><a href="https://www.usgbc.org/articles/freebie-friday-usgbc-wallpaper-earth-day">USGBC Earth Day</a></li>
+                <li><a href="http://getdrawings.com">getdrawings.com</a></li>
+            </ul>
+        </div>
+        <div class="footer-teams"> 
+            <ul><li><h3>Team</h3></li>
+                <li><a href="https://github.com/vignesh4a" >Vignesh Hegde</a></li>
+                <li><a href="https://github.com/USAJEY">U S Ajay</a></li>
+                <li><a href="https://github.com/sourabhalagekar">Sourabh Halgekar</a></li>
+                <li><a href="https://github.com/sureshbhagath">Suresh Bhagath</a></li>    
+            </ul>
+        </div>
+    </div>
+    <div id="bottom-footer">
+        <p>&copy; Mini Project</p>
+    </div>
+</footer>
+</body>
+<script src="{% static "scripts/user_upload.js" %}"></script>
+<script>
+    var tog = false;
+    function togg() {
+        if( !tog ){
+            console.log("HELLO")
+            document.getElementById("nav-links").style.right = "0";
+        }else{
+            document.getElementById("nav-links").style.right = "-100%";
+        }
+      tog = !tog;
+    }
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

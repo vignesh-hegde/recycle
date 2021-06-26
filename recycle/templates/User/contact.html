@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#04aa8b">
+    <link rel="stylesheet" href="{% static "styles/contact.css" %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">   
+    <title>Recycle</title>
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <a  href="{% url "user:index" %}">
+                <div class="b">
+                    <img id="bLogo" src="{% static "images/logo.png" %}" alt="" width="40px" style="align-self: center;">
+                    <h1 class="brand">Recycle </h1>
+                </div>
+            </a>
+            <ul id="nav-links">
+                <li class="currnet"> <a class="non-current nav-link" href="{% url "user:index" %}">Home</a></li>
+                <li class="currnet"> <a class="non-current nav-link" href="{% url "user:upload" %}">Upload</a></li>
+                <li class="currnet"> <a class="current nav-link" href="">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="burger" onclick="bueger()">
+            <hr id="top">
+            <hr id="middle">
+            <hr id="bottom">
+        </div>
+    </header>
+    
+
+    <div id="steps">
+        <h1>Meet the Doers and Builders</h1>
+        <div id="steps-inner">
+            <div class="step">
+                <img src="{% static "images/step_1.jpg" %}" alt="">
+                <p>Sourabh Halgekar</p>
+            </div>
+            <div class="step">
+                <img src="{% static "images/profiles/vignesh.png" %}" alt="">
+                <p>Vignesh Hegde</p>
+            </div>
+            <div class="step">
+                <img src="{% static "images/profiles/ajay.png" %}" alt="">
+                <p>U S Ajay</p>
+            </div>
+            <div class="step">
+                <img src="{% static "images/step_3.jpg" %}" alt="">
+                <p>Suresh Bhagath</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+
+    <div id="contact-info">
+        <div class="address">
+            <h1>Contact us</h1>
+            <span></span>
+            <a href="tel:+910000000000"><img src="{% static "images/phone-6x.png" %}" alt="" style="height: 25px;">+910000000000</a>
+            <a href="mailto:recyclesdh@gmail.com"><img src="{% static "images/envelope-closed-8x.png" %}" alt="" style="height: 25px;">recyclesdh@gmail.com</a>
+            <p></p>
+        </div>
+    </div>
+
+
+<footer>
+    <div id="top-footer">
+        <div class="footer-links"> 
+            <ul><li><h3>Credits</h3></li>
+                <li><a href='https://www.freepik.com/free-photos-vectors/background'>freepik.com</a></li>
+                <li><a href="https://www.usgbc.org/articles/freebie-friday-usgbc-wallpaper-earth-day">USGBC Earth Day</a></li>
+                <li><a href="http://getdrawings.com">getdrawings.com</a></li>
+            </ul>
+        </div>
+        <div class="footer-teams"> 
+            <ul>
+            <li><h3>Team</h3></li>
+            <li><a href="https://github.com/vignesh4a" >Vignesh Hegde</a></li>
+            <li><a href="https://github.com/USAJEY">U S Ajay</a></li>
+            <li><a href="https://github.com/sourabhalagekar">Sourabh Halgekar</a></li>
+            <li><a href="https://github.com/sureshbhagath">Suresh Bhagath</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="bottom-footer">
+        <p>&copy; Mini Project</p>
+    </div>
+</footer>
+</body>
+<script src="{% static "scripts/user_upload.js" %}"></script>
+</html>
